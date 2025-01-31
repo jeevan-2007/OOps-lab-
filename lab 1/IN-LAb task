@@ -1,0 +1,92 @@
+#include<iostream>
+using namespace std;
+void register_names(string name[],int donations[],int nop){
+    if (nop<=5){
+        for (int i=0;i<nop;i++){
+            cout<<"Enter name of the particpant no "<<i+1<<" :"<<endl;
+            cin>>name[i];
+            cout<<"Enter donations by "<<name[i]<<" :"<<endl;
+            cin>>donations[i];
+        }
+    }
+    else cout<<"Limit exceeded";
+}
+void attendacechecker(string namesofeventparticipants[],string namesofeventparticipants2[],int nop1,int nop2){
+    string name;
+    cout<<"Enter a name check :";
+    cin>>name;
+    bool found=true;
+    for(int i=0;i<nop1;i++){
+        if (name==namesofeventparticipants[i]){
+            cout<<name<<" is present in the event no 1";
+            found=true;
+            break;
+        }
+        else cout<<name<<" is not here in event1 :";
+        found=false;
+    }
+    if (found==false){
+    for(int i=0;i<nop2;i++){
+        if (name==namesofeventparticipants2[i]){
+            cout<<name<<" is present in the event no 2";
+            found=true;
+            break;
+        }
+        else cout<<name<<" is not here in event no 2:";
+        found=false;
+    }
+    }
+}
+int totaldonations(int donation1[],int donation2[],int nop1,int nop2){
+    int sum=0;
+    for(int i=0;i<nop1;i++){
+        sum+=donation1[i];
+    }
+    for(int i=0;i<nop2;i++){
+        sum+=donation2[i];
+    }
+    return sum;
+}
+void reverse_display(string namesofeventparticipants[], string namesofeventparticipants2[], int nop1, int nop2) {
+    cout << "Participants of event 1 in reverse order:" << endl;
+    for (int i = nop1 - 1; i >= 0; i--) {
+        cout << namesofeventparticipants[i] << endl;
+    }
+    cout << "Participants of event 2 in reverse order:" << endl;
+    for (int i = nop2 - 1; i >= 0; i--) {
+        cout << namesofeventparticipants2[i] << endl;
+    }
+}
+void eventpopularity(int nop1,int nop2){
+    cout<<"Event popularity Bar chart: ";
+    cout<<"Event 1:";
+    for(int i=0;i<nop1;i++){
+        cout<<"*";
+    }
+    cout<<"\n";
+    cout<<"Event 2:";
+    for(int i=0;i<nop2;i++){
+        cout<<"*";
+    }
+}
+int main(){
+    //For event no 1
+    string namesofeventparticipants[5];
+    int nopof1;//no of participants
+    cout<<"ENter no of participants for event 1: "<<endl;
+    cin>>nopof1;
+    int donationofevent1[5];
+    register_names(namesofeventparticipants,donationofevent1,nopof1);
+    //For event no 2
+    string namesofeventparticipants2[5];
+    int nopof2;//no of participants
+    cout<<"ENter no of participants for event 2 : "<<endl;
+    cin>>nopof2;
+    int donationofevent2[5];
+    register_names(namesofeventparticipants2,donationofevent2,nopof2);
+    attendacechecker(namesofeventparticipants,namesofeventparticipants2,nopof1,nopof2);
+    cout<<"Total donations collected : "<<totaldonations(donationofevent1,donationofevent2,nopof1,nopof2);
+    reverse_display(namesofeventparticipants,namesofeventparticipants2,nopof1,nopof2);
+    eventpopularity(nopof1,nopof2);
+}
+
