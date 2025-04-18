@@ -33,27 +33,24 @@ class outpatient : public patient {
 public:
     outpatient(string name, int id) : patient(name, id) {}
 
-    void displayTreatment() override {
+    void displayTreatment(){
         cout << "The patient " << name << " is treated for a heart attack (outpatient)." << endl;
     }
 
-    void calculateCost() override {
-        cout << "Total cost: 3300039" << endl;
+    void calculateCost(){
+        cout << "Total cost 977711" << endl;
     }
 };
 
 int main() {
-    // Use dynamic allocation with base class pointer
+    
     patient* P1 = new inpatient("John Doe", 101);
     P1->displayTreatment();
     P1->calculateCost();
-
     cout << endl;
-
     outpatient P2("Jane Smith", 202);
     P2.displayTreatment();
     P2.calculateCost();
-
-    delete P1; // Free allocated memory
+    delete P1; 
     return 0;
 }
