@@ -1,0 +1,6 @@
+# Vehicle data
+Car,1,Toyota,2020,4
+Bus,52,Mercedes,2019
+AutonomousCar,1,Waymo,2021,Software Version: 2.0
+ElectricVehicle,1,Tesla,2022,Battery Capacity: 75kWh
+HybridTruck,1,Ford,2023,Cargo:1000|Battery:200
